@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Numbers to text Page</title>
+    <script>
+        function Tostring()
+        {
+            var a=document.getElementById("t2").value;
+            var result="";
+            var len=a.length;
+            var ones=["zer0","one","two","three","four","five","six","seven","eight","nine"];
+            var teens=["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+            var tens=["","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+            for(let i=0;i<len;i++) {
+                let digit=a[i];
+                if(a>='1000') {
+                    result+=ones[digit]+" thousand ";
+                    a[i]="";
+                }
+                else if(a>='100' && a<'1000') {
+                    result+=ones[digit]+" hundred ";
+                    a[i]="";
+                }
+                else if(a>='20' && a<'100') {
+                    result+=tens[digit]+" ";
+                    a[i]="";
+                }
+                else if(a>='10' && a<'20') {
+                    result+=teens[digit]+" ";
+                    a[i]="";
+                }
+                else if(a>='0' && a<='9') {
+                    result+=ones[digit]+" ";
+                    a[i]="";
+                }
+            } 
+            document.getElementById("u1").value=result;
+        }
+    </script>
+</head>
+<body>
+    <h4 align ="center">Enter Number to convert to string</h4>
+    <br><p align="center">
+    Number=<input type="text" id="t2"/>
+    </p>
+    <p align="center">
+    <button onclick="Tostring()">Convert to string</button>
+    </p>
+    <br><p align="center">
+    <textarea id="u1" rows="10" cols="50" readonly></textarea>
+    </p>
+<body>
+</html>
